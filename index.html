@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Month with You</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        h1 {
+            color: #ff4081;
+            font-size: 36px;
+        }
+        .password-box {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #ff4081;
+            border-radius: 10px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 18px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e6005c;
+        }
+        .hidden-note {
+            display: none;
+            margin-top: 50px;
+            background-color: #fff8dc; /* พื้นหลังสีข้าว */
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideDown 1s forwards;
+        }
+        .hidden-note h2, .hidden-note p {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 1s forwards;
+        }
+        .hidden-note p:nth-child(2) { animation-delay: 0.3s; }
+        .hidden-note p:nth-child(3) { animation-delay: 0.6s; }
+        .hidden-note p:nth-child(4) { animation-delay: 0.9s; }
+
+        .heart {
+            position: absolute;
+            color: #ff4081;
+            font-size: 24px;
+            animation: floatUp 3s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-200px); opacity: 0; }
+        }
+
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💖 6 Month with You 💖</h1>
+        <div class="password-box">
+            <input type="password" id="password" placeholder="ใส่รหัสผ่านเพื่อเปิดโน้ต">
+            <button onclick="checkPassword()">🔓 เปิดโน้ต</button>
+        </div>
+        <div id="hearts"></div>
+        <div class="hidden-note" id="note">
+            <h2>💌 6 เดือนเเล้วววว 💌</h2>
+            <p>ขอบคุณที่อยู่ด้วยกันมา 6 เดือนนะคะ
+                เว็บนี้ผมทำให้เลยย เก่งม่ะ ขอบคุณที่อยู่ด้วยกันมา
+                นาขนาดนี้ ผมไม่มีไรจะเขียนเส้า ToT 
+                เเต่ผมชอบอยู่กับหนูมากๆเลยนะ
+                ไปเเยะ รักหนูมากๆเลยนะคะ จุ้บจุ้บค่ะน้องหมู</p>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "110967") {
+                document.getElementById("note").style.display = "block";
+            } else {
+                alert("เเค่วันครบรอบยังไม่รู้ โกดดด ");
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = window.innerHeight + "px";
+            document.getElementById("hearts").appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
