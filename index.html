@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -48,7 +47,7 @@
         .hidden-note {
             display: none;
             margin-top: 50px;
-            background-color: #fff8dc; /* พื้นหลังสีข้าว */
+            background-color: #fff8dc;
             padding: 20px;
             width: 80%;
             max-width: 500px;
@@ -57,9 +56,6 @@
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             text-align: left;
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: slideDown 1s forwards;
         }
         .hidden-note h2, .hidden-note p {
             opacity: 0;
@@ -69,24 +65,16 @@
         .hidden-note p:nth-child(2) { animation-delay: 0.3s; }
         .hidden-note p:nth-child(3) { animation-delay: 0.6s; }
         .hidden-note p:nth-child(4) { animation-delay: 0.9s; }
-
         .heart {
             position: absolute;
             color: #ff4081;
             font-size: 24px;
             animation: floatUp 3s linear infinite;
         }
-
         @keyframes floatUp {
             0% { transform: translateY(0); opacity: 1; }
             100% { transform: translateY(-200px); opacity: 0; }
         }
-
-        @keyframes slideDown {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(-20px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -103,11 +91,12 @@
         <div id="hearts"></div>
         <div class="hidden-note" id="note">
             <h2>💌 6 เดือนเเล้วววว 💌</h2>
-            <p>ขอบคุณที่อยู่ด้วยกันมา 6 เดือนนะคะ
+            <p>ใขอบคุณที่อยู่ด้วยกันมา 6 เดือนนะคะ
                 เว็บนี้ผมทำให้เลยย เก่งม่ะ ขอบคุณที่อยู่ด้วยกันมา
                 นาขนาดนี้ ผมไม่มีไรจะเขียนเส้า ToT 
                 เเต่ผมชอบอยู่กับหนูมากๆเลยนะ
                 ไปเเยะ รักหนูมากๆเลยนะคะ จุ้บจุ้บค่ะน้องหมู</p>
+            <button onclick="nextPage()">➡ ไปหน้าถัดไป</button>
         </div>
     </div>
 
@@ -117,8 +106,12 @@
             if (password === "110967") {
                 document.getElementById("note").style.display = "block";
             } else {
-                alert("เเค่วันครบรอบยังไม่รู้ โกดดด ");
+                alert("รหัสผิดนะค้าบ ลองใหม่ 💕");
             }
+        }
+
+        function nextPage() {
+            window.location.href = "next.html"; // ไปหน้าถัดไป
         }
 
         function createHeart() {
